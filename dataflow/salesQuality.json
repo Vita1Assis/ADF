@@ -1,0 +1,67 @@
+{
+	"name": "salesQuality",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "sales_data",
+						"type": "DatasetReference"
+					},
+					"name": "salesData"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "out_sales_data",
+						"type": "DatasetReference"
+					},
+					"name": "sinkOut"
+				}
+			],
+			"transformations": [
+				{
+					"name": "byMargin"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          {Order Date} as string,",
+				"          {Order ID} as string,",
+				"          Product as string,",
+				"          Product_ean as string,",
+				"          {catégorie} as string,",
+				"          {Purchase Address} as string,",
+				"          {Quantity Ordered} as string,",
+				"          {Price Each} as string,",
+				"          {Cost price} as double,",
+				"          turnover as double,",
+				"          margin as double",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> salesData",
+				"salesData assert(expectTrue(margin/turnover >= 0.5, false, 'byMargin')) ~> byMargin",
+				"byMargin sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     input(",
+				"          {Order Date} as string,",
+				"          {Order ID} as string,",
+				"          Product as string,",
+				"          Product_ean as string,",
+				"          {catégorie} as string,",
+				"          {Purchase Address} as string,",
+				"          {Quantity Ordered} as string,",
+				"          {Price Each} as string,",
+				"          {Cost price} as string,",
+				"          turnover as string,",
+				"          margin as string",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sinkOut"
+			]
+		}
+	}
+}

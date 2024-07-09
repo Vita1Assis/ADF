@@ -1,0 +1,31 @@
+{
+	"name": "HDInsightLinkedService",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "HDInsightOnDemand",
+		"typeProperties": {
+			"clusterType": "hadoop",
+			"clusterSize": 1,
+			"timeToLive": "00:15:00",
+			"version": "4.0",
+			"hostSubscriptionId": "101a23e4-9302-47d6-a614-781e42164e31",
+			"clusterResourceGroup": "triadeadls",
+			"servicePrincipalId": "c5b60c72-b02c-40a3-b4a5-e11fc05fad5e",
+			"osType": "Linux",
+			"tenant": "bf75d9d2-80f0-4ac6-a20e-58363c21544d",
+			"clusterNamePrefix": "TriadeHadoop",
+			"clusterUserName": "atriade",
+			"clusterSshUserName": "atriadessh",
+			"additionalLinkedServiceNames": [],
+			"linkedServiceName": {
+				"referenceName": "HDIStorageLinkedService",
+				"type": "LinkedServiceReference"
+			},
+			"headNodeSize": "",
+			"dataNodeSize": "",
+			"zookeeperNodeSize": "",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQDEyMEY5NjM4LTJGQjQtNEEzOC05QzU0LUU0RTJENEQ5OEI2Ql9kMDBjOThkMy0yZGJjLTRlOWUtOWM1ZC01OGMwMDE5NWI0NjUiDQp9"
+		}
+	}
+}

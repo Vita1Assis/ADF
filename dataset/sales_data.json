@@ -1,0 +1,69 @@
+{
+	"name": "sales_data",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SftpTriade",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "SftpLocation",
+				"fileName": "sales_data.csv",
+				"folderPath": "/home/atriade/vitor_assis"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Order Date",
+				"type": "String"
+			},
+			{
+				"name": "Order ID",
+				"type": "String"
+			},
+			{
+				"name": "Product",
+				"type": "String"
+			},
+			{
+				"name": "Product_ean",
+				"type": "String"
+			},
+			{
+				"name": "catégorie",
+				"type": "String"
+			},
+			{
+				"name": "Purchase Address",
+				"type": "String"
+			},
+			{
+				"name": "Quantity Ordered",
+				"type": "String"
+			},
+			{
+				"name": "Price Each",
+				"type": "String"
+			},
+			{
+				"name": "Cost price",
+				"type": "String"
+			},
+			{
+				"name": "turnover",
+				"type": "String"
+			},
+			{
+				"name": "margin",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

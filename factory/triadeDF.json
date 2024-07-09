@@ -1,0 +1,9 @@
+{
+	"name": "triadeDF",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "a0a9c582-2adc-4cda-aa3f-537a61346486",
+		"tenantId": "bf75d9d2-80f0-4ac6-a20e-58363c21544d"
+	}
+}
